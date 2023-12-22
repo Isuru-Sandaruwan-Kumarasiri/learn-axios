@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
+import axios from 'axios';
 
 function App() {
+  const [data,setData]=useState();
+  axios
+  .get('https://api.restful-api.dev/objects')
+  .then((response)=>{
+    setData(response.data[0].name);
+  })
+  .catch((error)=>{
+    console.log(error)
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='background'>
+      <div className='from-title'>{data}</div>
     </div>
   );
 }
