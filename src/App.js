@@ -22,6 +22,9 @@ const url='https://api.restful-api.dev/objects';
 //add object
 const url_2='https://api.restful-api.dev/objects';
 
+//put 
+const url_3='https://api.restful-api.dev/objects/ff8081818c01d7ae018c9a79c90d3834';
+
 // useEffect(()=>{
 //    const fetchData=async ()=>{
 //     try {
@@ -40,7 +43,7 @@ const url_2='https://api.restful-api.dev/objects';
 // },[])
     
 const handleSubmit= async(event)=>{
-  event.preventDefault();
+  event.preventDefault();//avoid refesh page before data loading
     try {
        const submitData={
          name:deviceName,
@@ -49,7 +52,8 @@ const handleSubmit= async(event)=>{
           price:devicePrice,
          }
        } ;
-       const response=await axios.post(url_2,submitData);
+       //const response=await axios.post(url_2,submitData);//post request
+       const response=await axios.put(url_3,submitData);//update request
        console.log(response);
     } catch (error) {
       console.log(error);
