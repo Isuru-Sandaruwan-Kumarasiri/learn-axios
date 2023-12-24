@@ -28,7 +28,7 @@ const url_3='https://api.restful-api.dev/objects/ff8081818c01d7ae018c9a79c90d383
 // useEffect(()=>{
 //    const fetchData=async ()=>{
 //     try {
-//       const result=await axios.get(url);
+//       const result=await axios.get(url)
 //       const needData=result.data[2];
  
 //       setDeviceName(needData.name);
